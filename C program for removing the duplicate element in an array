@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void main()
+{
+    int *arr,i,j,n,x,temp;
+    clrscr();
+    printf("Enter the number of elements in the array");
+    scanf("%d",&n);
+    arr=(int*)malloc(sizeof(int)*n);
+    for(i=0;i<n;i++)
+    {
+        printf("Enter a number");
+        scanf("%d",&arr[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(arr[i]>arr[j])
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+    }
+    printf("nElements of array after sortingn");
+    for(i=0;i<n;i++)
+        printf("%d",arr[i]);
+    i=0;
+    j=1;
+    while(i<n)
+    {
+        if(arr[i]==arr[j])
+        {
+            for(x=j;x<n-1;x++)
+                arr[x]=arr[x+1];
+            n--;
+        }
+        else
+        {
+            i++;
+            j++;
+        }
+    }
+    printf("nElements of array after removing duplicate elementsn");
+    for(i=0;i<=n;i++)
+        printf("%d",arr[i]);
+    getch();
+}
